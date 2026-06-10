@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="overlay">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Expense Tracker</h2>
+        <ul>
+            <li onclick="showSection('dashboardSection')">Dashboard</li>
+            <li onclick="showSection('userSection')">Users</li>
+            <li onclick="showSection('categorySection')">Categories</li>
+            <li onclick="showSection('expenseSection')">Expenses</li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+        <!-- DASHBOARD -->
+        <div id="dashboardSection" class="section">
+            <div class="welcome-box">
+                <h1>Welcome to Expense Tracker</h1>
+                <p>Track your expenses easily and manage your finance smartly.</p>
+            </div>
+            <div class="cards">
+                <div class="card"><h3>Total Users</h3><h1 id="totalUsers">0</h1></div>
+                <div class="card"><h3>Total Categories</h3><h1 id="totalCategories">0</h1></div>
+                <div class="card"><h3>Total Expenses</h3><h1 id="totalExpenses">₹0</h1></div>
+            </div>
+        </div>
+
+        <!-- USER SECTION -->
+        <div id="userSection" class="section">
+            <div class="form-section">
+                <h2>Add User</h2>
+                <div class="form-grid">
+                    <input type="text" id="name" placeholder="Enter Name">
+                    <input type="email" id="email" placeholder="Enter Email">
+                </div>
+                <button onclick="createUser()">Save User</button>
+            </div>
+            <div class="table-section">
+                <h2>User List</h2>
+                <table>
+                    <thead><tr><th>ID</th><th>Name</th><th>Email</th></tr></thead>
+                    <tbody id="userTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CATEGORY SECTION -->
+        <div id="categorySection" class="section">
+            <div class="form-section">
+                <h2>Add Category</h2>
+                <div class="form-grid">
+                    <input type="text" id="categoryName" placeholder="Category Name">
+                </div>
+                <button onclick="createCategory()">Save Category</button>
+            </div>
+            <div class="table-section">
+                <h2>Category List</h2>
+                <table>
+                    <thead><tr><th>ID</th><th>Category</th></tr></thead>
+                    <tbody id="categoryTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- EXPENSE SECTION -->
+        <div id="expenseSection" class="section">
+            <div class="form-section">
+                <h2>Add Expense</h2>
+                <div class="form-grid">
+                    <input type="number" id="amount" placeholder="Amount">
+                    <input type="date" id="date">
+                    <select id="userId"></select>
+                    <select id="categoryId"></select>
+                </div>
+                <button onclick="addExpense()">Save Expense</button>
+            </div>
+            <div class="table-section">
+                <h2>Expense List</h2>
+                <table>
+                    <thead><tr><th>ID</th><th>Amount</th><th>Category</th><th>Date</th></tr></thead>
+                    <tbody id="expenseTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
