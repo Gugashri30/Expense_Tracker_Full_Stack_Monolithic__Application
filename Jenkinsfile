@@ -27,10 +27,10 @@ pipeline{
         	}
 
         	stage('Deploy') {
-    			steps {
+    			 steps {
         			sh '''
         			mkdir -p /workspace/Deployment/ExpenseTracker
-        			cp Backend_SET/smart_expense_tracker_Backend/target/smart_expense_tracker_Backend-0.0.1-					SNAPSHOT.jar \
+       				cp Backend_SET/smart_expense_tracker_Backend/target/*.jar \
         			/workspace/Deployment/ExpenseTracker/
         			'''
     			}
@@ -38,7 +38,7 @@ pipeline{
     	}
 
     post {
-        success {
+        success { 
             echo 'Pipeline Completed Successfully'
         }
 
