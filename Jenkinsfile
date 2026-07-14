@@ -27,10 +27,14 @@ pipeline{
         	}
 
         	stage('Deploy') {
-            		steps {
-                		echo 'Deploying Application...'
-            		}
-        	}
+    			steps {
+        			sh '''
+        			mkdir -p /workspace/Deployment/ExpenseTracker
+        			cp Backend_SET/smart_expense_tracker_Backend/target/smart_expense_tracker_Backend-0.0.1-					SNAPSHOT.jar \
+        			/workspace/Deployment/ExpenseTracker/
+        			'''
+    			}
+		}
     	}
 
     post {
