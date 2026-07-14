@@ -50,3 +50,5 @@ Improve UI with React/Angular.
 Export reports to PDF/Excel.
 
 Add charts for expense visualization.
+
+CI Poll SCM Test
